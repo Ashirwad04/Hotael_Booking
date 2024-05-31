@@ -3,6 +3,8 @@ package AirBNB_Api.service;
 import AirBNB_Api.entity.AppUser;
 import AirBNB_Api.paylod.UserDto;
 import AirBNB_Api.repo.AppUserRepository;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -41,7 +43,8 @@ public class UserServiceImpl implements UserService{
         user.setName(userDto.getName());
         user.setUsername(userDto.getUsername());
         user.setEmailId(userDto.getEmailId());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(BCrypt.hashpw(userDto.getPassword(),BCrypt.gensalt(10)));
+        //user.setPassword(new BCryptPasswordEncoder().encode(userDto.getPassword()));
         return user;
     }
 }
