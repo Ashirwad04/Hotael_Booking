@@ -1,4 +1,4 @@
 package AirBNB_Api.controller;
 
-public class a {
+public class S {
 }
