@@ -8,5 +8,5 @@ public interface UserService {
 
     public UserDto addUser(UserDto userDto);
 
-    Boolean verifyLogin(LoginDto loginDto);
+    String verifyLogin(LoginDto loginDto);
 }

@@ -34,9 +34,9 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<String> login (@RequestBody LoginDto loginDto){
 
-        Boolean status = userService.verifyLogin(loginDto);
-        if (status){
-            return new ResponseEntity<>("login pass", HttpStatus.OK);
+        String token= userService.verifyLogin(loginDto);
+        if (token !=null){
+            return new ResponseEntity<>(token, HttpStatus.OK);
         }
 
        else {
