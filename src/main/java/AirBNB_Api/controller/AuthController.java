@@ -1,6 +1,7 @@
 package AirBNB_Api.controller;
 
 
+import AirBNB_Api.paylod.LoginDto;
 import AirBNB_Api.paylod.UserDto;
 import AirBNB_Api.service.UserServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -29,4 +30,21 @@ public class AuthController {
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
 
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login (@RequestBody LoginDto loginDto){
+
+        Boolean status = userService.verifyLogin(loginDto);
+        if (status){
+            return new ResponseEntity<>("login pass", HttpStatus.OK);
+        }
+
+       else {
+            return new ResponseEntity<>("Fail", HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+
+
+
 }

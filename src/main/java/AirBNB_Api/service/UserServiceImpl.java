@@ -1,11 +1,14 @@
 package AirBNB_Api.service;
 
 import AirBNB_Api.entity.AppUser;
+import AirBNB_Api.paylod.LoginDto;
 import AirBNB_Api.paylod.UserDto;
 import AirBNB_Api.repo.AppUserRepository;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 @Service
@@ -17,7 +20,7 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-
+//add user
     @Override
     public UserDto addUser(UserDto userDto) {
         AppUser user = mapToEntity(userDto);
@@ -25,6 +28,24 @@ public class UserServiceImpl implements UserService{
         UserDto dto = mapToDto(savedUser);
         return dto;
     }
+
+
+//verify login
+
+    @Override
+    public Boolean verifyLogin(LoginDto loginDto) {
+
+        Optional<AppUser> opUser = userRepository.findByUsername(loginDto.getUsername());
+        System.out.println(opUser);
+        if (opUser.isPresent()){
+            AppUser user = opUser.get();
+            return BCrypt.checkpw(loginDto.getPassword(),user.getPassword());
+        }
+
+        return false;
+    }
+
+
 
 
 
