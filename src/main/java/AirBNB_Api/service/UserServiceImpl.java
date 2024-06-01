@@ -59,6 +59,7 @@ public class UserServiceImpl implements UserService{
         UserDto dto = new UserDto();
         dto.setId(user.getId());
         dto.setName(user.getName());
+        dto.setUserRole(user.getUserRole());
         dto.setUsername(user.getUsername());
         dto.setEmailId(user.getEmailId());
         return dto;
@@ -67,7 +68,9 @@ public class UserServiceImpl implements UserService{
         AppUser user = new AppUser();
         user.setName(userDto.getName());
         user.setUsername(userDto.getUsername());
+
         user.setEmailId(userDto.getEmailId());
+        user.setUserRole(userDto.getUserRole());
         user.setPassword(BCrypt.hashpw(userDto.getPassword(),BCrypt.gensalt(10)));
         //user.setPassword(new BCryptPasswordEncoder().encode(userDto.getPassword()));
         return user;
