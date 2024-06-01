@@ -1,5 +1,6 @@
 package AirBNB_Api.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -23,7 +24,12 @@ public class AppUser {
     @Column(name = "email_id", nullable = false, unique = true)
     private String emailId;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false)
     private String password;
+
+    @JsonIgnore
+    @Column(name = "user_role", nullable = false, length = 25)
+    private String userRole;
 
 }
