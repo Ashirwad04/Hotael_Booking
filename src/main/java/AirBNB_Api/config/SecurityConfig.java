@@ -29,14 +29,22 @@ public class SecurityConfig {
 
 
         http.authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/login","/api/v1/auth/addUser")
 
-                .permitAll()
+                //just for testing purposes only
+                .anyRequest().permitAll()
 
-                //.requestMatchers("/api/v1/countries/addCountry").hasRole("ADMIN")
-                .requestMatchers("/api/v1/countries/addCountry").hasRole("ADMIN")
-                .requestMatchers("/ap1/v1/auth/profile").hasAnyRole("ADMIN","USER")
-                .anyRequest().authenticated();
+
+
+
+//                .requestMatchers("/api/v1/auth/login","/api/v1/auth/addUser")
+//
+//                .permitAll()
+//
+//                //.requestMatchers("/api/v1/countries/addCountry").hasRole("ADMIN")
+//                .requestMatchers("/api/v1/countries/addCountry").hasRole("ADMIN")
+//                .requestMatchers("/ap1/v1/auth/profile").hasAnyRole("ADMIN","USER")
+//                .anyRequest().authenticated()
+        ;
 
         return http.build();
 
