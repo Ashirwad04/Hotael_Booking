@@ -32,4 +32,6 @@ public class AppUser {
     @Column(name = "user_role", nullable = false, length = 25)
     private String userRole;
 
+
+
 }
