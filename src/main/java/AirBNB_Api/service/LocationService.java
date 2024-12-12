@@ -17,7 +17,6 @@ public class LocationService {
 
     }
 
-
     //get all location
     public List<Location> getAllLocation(){
         return locationRepository.findAll();

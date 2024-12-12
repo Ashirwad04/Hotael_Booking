@@ -31,10 +31,6 @@ public class Booking {
     @Column(name = "check_in_t_ime", nullable = false)
     private Integer checkInTIme;
 
-
-
-
-
     @ManyToOne
     @JoinColumn(name = "property_id")
     private Property property;

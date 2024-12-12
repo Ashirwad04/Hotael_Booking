@@ -30,21 +30,17 @@ public class CountryController {
     public ResponseEntity<Country> getCountryById(@PathVariable Long id){
         return new ResponseEntity<>(countryService.getCountryById(id), HttpStatus.OK);
     }
-
-
 //Save country
     @PostMapping
     public ResponseEntity<Country> createCountry(@RequestBody Country country) {
         return new ResponseEntity<>(countryService.saveCountry(country), HttpStatus.CREATED);
     }
 
-
     //update country
      @PutMapping("/{id}")
      public ResponseEntity<Country> updateCountry(@PathVariable Long id, @RequestBody Country country) {
           country.setId(id);
           return new ResponseEntity<>(countryService.saveCountry(country), HttpStatus.OK);
-
      }
 
 //delete country
@@ -54,6 +50,4 @@ public class CountryController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
     }
-
-
 }

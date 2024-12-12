@@ -26,8 +26,6 @@ public class FavoriteController {
         this.fr = fr;
         this.pr = pr;
     }
-
-
     @PostMapping("/addFav")
 
     public ResponseEntity<Favorite> addFavorite(
@@ -45,8 +43,6 @@ public class FavoriteController {
         return new ResponseEntity<>(savedFavorite, HttpStatus.CREATED);
 
     }
-
-
 
     @GetMapping("/userFavoriteList")
     public ResponseEntity<List<Favorite>> getAllFavoritesOfUser(

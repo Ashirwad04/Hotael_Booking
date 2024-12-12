@@ -43,13 +43,10 @@ public ResponseEntity<Location> createLocation(@RequestBody Location location) {
         location.setId(id);
         return new ResponseEntity<>(locationService.saveLocation(location), HttpStatus.OK);
     }
-
-
 //delete location
     @DeleteMapping("/{id}")
     private ResponseEntity<Void> deleteLocation(@PathVariable Long id){
         locationService.deleteLocation(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }

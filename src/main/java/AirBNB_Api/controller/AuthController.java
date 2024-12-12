@@ -46,15 +46,10 @@ public class AuthController {
             return new ResponseEntity<>("Fail", HttpStatus.UNAUTHORIZED);
         }
     }
-
-
+    
     @GetMapping("/profile")
     public AppUser getCuurentProfile(@AuthenticationPrincipal AppUser user){
 
         return user;
     }
-
-
-
-
 }

@@ -31,9 +31,7 @@ public class UserServiceImpl implements UserService{
         return dto;
     }
 
-
 //verify login
-
     @Override
     public String verifyLogin(LoginDto loginDto) {
 
@@ -48,11 +46,6 @@ public class UserServiceImpl implements UserService{
 
         return null;
     }
-
-
-
-
-
 
 
     UserDto mapToDto(AppUser user){

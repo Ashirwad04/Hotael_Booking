@@ -29,12 +29,6 @@ public class BookingController {
         this.pdfService = pdfService;
     }
 
-
-
-
-
-
-
     @PostMapping("/createBooking")
     public ResponseEntity<Booking> createBooking(
             @RequestParam long propertyId,
@@ -55,72 +49,7 @@ public class BookingController {
 
         String filePath = pdfService.generateBookingDetailsPdf(savedBooking);
 
-        // System.out.println(filePath);
-
-
-//        if (filePath != null) {
-//
-//            try {
-//                MultipartFile fileMultipart = BookingController.convert(filePath);
-//                String fileUploadedUrl = bucketService.uploadFile(fileMultipart, "myairbnb963");
-//                System.out.println(fileUploadedUrl);
-//                sendMessage(fileUploadedUrl);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-
-
         return  new ResponseEntity<>(savedBooking, HttpStatus.CREATED);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    @PostMapping("/createBooking")
-//    public ResponseEntity<Booking> createBooking(
-//            @RequestParam long propertyId,
-//            @RequestBody Booking booking,
-//            @AuthenticationPrincipal AppUser user
-//    ){
-//        Property property = propertyRepository.findById(propertyId).get();
-//        int nightlyPrice = property.getNightlyPrice();
-//
-//        int totalPrice=nightlyPrice*booking.getTotalNights();
-//       // double tax=totalPrice*(18/100);
-//
-//        booking.setTotalPrice(totalPrice);
-//
-//        booking.setProperty(property);
-//
-//        booking.setAppUser(user);
-//        Booking saveBooking = bookingRepository.save(booking);
-//        return new ResponseEntity<>(saveBooking, HttpStatus.CREATED);
-//    }
-
-
-
-
-
-
 
 }
